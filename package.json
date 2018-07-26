@@ -1,0 +1,26 @@
+{
+  "name": "webpack-project",
+  "version": "1.0.0",
+  "description": "webpack build project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lanveer/webpack-project.git"
+  },
+  "keywords": [
+    "webpack",
+    "learn"
+  ],
+  "author": "lanveer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lanveer/webpack-project/issues"
+  },
+  "homepage": "https://github.com/Lanveer/webpack-project#readme",
+  "devDependencies": {
+    "webpack": "^4.16.2"
+  }
+}

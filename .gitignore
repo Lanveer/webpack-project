@@ -1,0 +1,47 @@
+
+# /
+/build
+/dist
+/WebContent
+/.classpath
+/.settings
+/.project
+/.gradle
+/.log
+/**/.gradle
+/**/build
+/.idea
+/.vagrant
+/adminconsole.iml
+/bin/*
+/build.properties
+/properties
+/myconf.properties
+/config.properties
+/Vagrantfile
+new/
+# /credit/
+/credit/*
+
+# /web/admin/
+/web/admin/admin_build.properties
+
+# /web/lcui/util/scripts/setup/
+/web/lcui/util/scripts/setup/sl_main.bat
+/web/lcui/util/scripts/setup/sl_main.properties
+
+# /web/lcui/war/WEB-INF/classes/
+/web/lcui/war/WEB-INF/classes/log4j.properties
+/bin
+/**/.DS_Store
+/**/out
+/out
+.idea
+*.iml
+node_modules
+/adminconsole/src/main/webapp/node_modules
+/adminconsole/src/main/webapp/new
+/classes/artifacts/opc-asset
+
+wmSessions.xml
+
