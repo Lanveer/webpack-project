@@ -4,7 +4,10 @@
   "description": "webpack build project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode=development --devtool eval-source-map --progress --colors ",
+    "prod": "webpack-dev-server --mode=development --host 0.0.0.0",
+    "local": "使用本机 IP 访问项目 [localhost]:8080 => 192.168.0.111:8080"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,9 @@
   },
   "homepage": "https://github.com/Lanveer/webpack-project#readme",
   "devDependencies": {
-    "webpack": "^4.16.2"
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   }
 }
