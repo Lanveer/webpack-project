@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode=development --open --hot",
+    "start": "webpack-dev-server --mode=development --devtool eval-source-map --progress --colors ",
     "prod": "webpack-dev-server --mode=development --host 0.0.0.0",
-    "local": "使用本机 IP 访问项目 [Your IP]:8080 => 192.168.0.111:8080"
+    "local": "使用本机 IP 访问项目 [localhost]:8080 => 192.168.0.111:8080"
   },
   "repository": {
     "type": "git",
