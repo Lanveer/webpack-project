@@ -1,20 +1,32 @@
 
 let path = require('path');
 let webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
-    entry: './index.js',
+    entry: {
+      "app":'./index.js'
+    },
+    mode:"development",
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: "bundle.js",
+        filename: "[name]_bundle.js",
         publicPath: '/'
     },
     module: {
-        rules: [
-
+        rules:[
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader']
+                })
+            }
         ]
+
     },
     plugins:[
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('app.bundle.css')
     ],
     devServer:{
         contentBase:path.resolve(__dirname,'dist'),
@@ -23,10 +35,9 @@ module.exports = {
         // 设置端口
         port:9999,
         // 设置自动拉起浏览器
-
+        open:true,
         //代码压缩
         compress: true,
-        open:true,
         inline:true,
         hot:true
 

@@ -103,3 +103,19 @@ npm install webpack-dev-server --save-dev
 
 
 
+
+            # 处理less文件
+            1. 安装  npm i less less-loader -D
+            2. 安装  npm install style-loader --save-dev  npm install css-loader --save-dev
+            3. 配置文件中引用 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+            4.添加规则      {
+                                  test: /\.less$/,
+                                  loader: ExtractTextPlugin.extract({
+                                      fallback: 'style-loader',
+                                      use: 'css-loader!less-loader'
+                                  })
+                              }
+
+
+
+
