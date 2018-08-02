@@ -20,8 +20,14 @@ module.exports = {
                     fallback: 'style-loader',
                     use: ['css-loader', 'less-loader']
                 })
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
             }
-        ]
+        ],
+
 
     },
     plugins:[

@@ -108,13 +108,35 @@ npm install webpack-dev-server --save-dev
             1. 安装  npm i less less-loader -D
             2. 安装  npm install style-loader --save-dev  npm install css-loader --save-dev
             3. 配置文件中引用 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-            4.添加规则      {
-                                  test: /\.less$/,
-                                  loader: ExtractTextPlugin.extract({
-                                      fallback: 'style-loader',
-                                      use: 'css-loader!less-loader'
-                                  })
-                              }
+            4.添加规则            rules:[
+                                    {
+                                        test: /\.less$/,
+                                        use: ExtractTextPlugin.extract({
+                                            fallback: 'style-loader',
+                                            use: ['css-loader', 'less-loader']
+                                        })
+                                    }
+                                ]
+
+             尤其需要注意的地方是目前的extract-text-webpack-plugin 没有匹配webpack4.x的版本，所以总是会报错
+             解决办法就是安装和webpack匹配的  npm install extract-text-webpack-plugin@next  --save-dev
+             便可以解决
+
+
+
+          # 处理ES6转化成ES5
+
+          1.添加babelrc 文件
+
+          2. 安装需要的解码文件
+           npm install babel-core babel-preset-es2015 babel-loader --save-dev
+
+          3.配置文件
+             {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+             }
 
 
 
