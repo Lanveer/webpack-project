@@ -2,6 +2,8 @@
 let path = require('path');
 let webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const  cleanWebpackPlugin=require('clean-webpack-plugin');
 module.exports = {
     entry: {
       "app":'./index.js'
@@ -32,7 +34,14 @@ module.exports = {
     },
     plugins:[
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('app.bundle.css')
+        new ExtractTextPlugin('app.bundle.css'),
+        new cleanWebpackPlugin(['dist']),
+        new htmlWebpackPlugin({
+            inject:true,
+            filename:'index.html',
+            title:'htmlplugin test',
+            template:'./index.html'
+        })
     ],
     devServer:{
         contentBase:path.resolve(__dirname,'dist'),
