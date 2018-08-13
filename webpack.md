@@ -141,3 +141,17 @@ npm install webpack-dev-server --save-dev
 
 
 
+# 清除多余的css文件，将打包后的html中冗余的css文件按需加载，没有引用的就不
+
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
+
+     //css purify
+        new PurifyCSSPlugin({
+            paths: glob.sync(path.join(__dirname, '*.html'))
+        })
+
+
+
+
+

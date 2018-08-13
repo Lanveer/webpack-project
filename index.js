@@ -9,3 +9,5 @@ let b = 222;
 let xxx = (c,d) => c*d;
 console.log('answer is:',xxx(a,b));
 
+//测试一下看看删除了没有
+
