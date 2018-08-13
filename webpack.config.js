@@ -6,7 +6,9 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const  cleanWebpackPlugin=require('clean-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
-const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
+const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const chalk = require('chalk');
 module.exports = {
     entry: {
       "app":'./index.js'
@@ -53,7 +55,7 @@ module.exports = {
         new WebpackParallelUglifyPlugin({
             uglifyJS: {
                 output: {
-                    beautify: true, //不需要格式化
+                    beautify: true, //不需要格式化， true 表示不会压缩代码 false表示会压缩代码
                     comments: false //不保留注释
                 },
                 compress: {
@@ -63,6 +65,10 @@ module.exports = {
                     reduce_vars: true // 提取出出现多次但是没有定义成变量去引用的静态值
                 }
             }
+        }),
+    //    显示打包时间
+        new ProgressBarPlugin({
+            format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)'
         })
     ],
     devServer:{

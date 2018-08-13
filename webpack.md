@@ -141,17 +141,34 @@ npm install webpack-dev-server --save-dev
 
 
 
-# 清除多余的css文件，将打包后的html中冗余的css文件按需加载，没有引用的就不
+    # 清除多余的css文件，将打包后的html中冗余的css文件按需加载，没有引用的就不
 
-const glob = require('glob');
-const PurifyCSSPlugin = require('purifycss-webpack');
+    const glob = require('glob');
+    const PurifyCSSPlugin = require('purifycss-webpack');
 
-     //css purify
-        new PurifyCSSPlugin({
-            paths: glob.sync(path.join(__dirname, '*.html'))
-        })
+         //css purify
+            new PurifyCSSPlugin({
+                paths: glob.sync(path.join(__dirname, '*.html'))
+            })
 
 
+      # 清除多余的js文件，以及代码格式化，压缩，去除空格
+      const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+
+        new WebpackParallelUglifyPlugin({
+              uglifyJS: {
+                  output: {
+                      beautify: true, //不需要格式化， true 表示不会压缩代码 false表示会压缩代码
+                      comments: false //不保留注释
+                  },
+                  compress: {
+                      warnings: false, // 在UglifyJs删除没有用到的代码时不输出警告
+                      drop_console: true, // 删除所有的 `console` 语句，可以兼容ie浏览器
+                      collapse_vars: true, // 内嵌定义了但是只用到一次的变量
+                      reduce_vars: true // 提取出出现多次但是没有定义成变量去引用的静态值
+                  }
+              }
+          })
 
 
 
