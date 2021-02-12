@@ -39,6 +39,8 @@ new/
 .idea
 *.iml
 node_modules
+dist
+package-lock.json
 /adminconsole/src/main/webapp/node_modules
 /adminconsole/src/main/webapp/new
 /classes/artifacts/opc-asset
